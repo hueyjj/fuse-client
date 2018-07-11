@@ -1,0 +1,19 @@
+body {
+    display: inline-block;    
+}
+
+table {
+    table-layout: fixed;
+}
+
+.rss-row {
+    white-space: nowrap;
+}
+
+.rss-row:hover {
+    background: orange;
+}
+
+.item {
+    display: inline-block;
+}

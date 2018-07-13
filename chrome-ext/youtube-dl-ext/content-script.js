@@ -35,6 +35,14 @@ let updateBtnStatus = () => {
   }
 };
 
+let setDownloadingStatus = (downloading) => {
+  if (downloading) {
+    grumpyBtn.textContent = "downloading...";
+  } else {
+    grumpyBtn.textContent = "...";
+  }
+}
+
 let fetchSearchMusicVideo = () => {
   console.log("Searching for " + URL);
   fetch(SEARCH_ENDPOINT, {
@@ -66,6 +74,7 @@ fetchSearchMusicVideo();
 var downloadStatus = null;
 let fetchDownloadMusicVideo = () => {
   console.log("Downloading for " + URL);
+  setDownloadingStatus(true);
   fetch(DOWNLOAD_ENDPOINT, {
     method: "POST",
     headers: {
@@ -81,6 +90,7 @@ let fetchDownloadMusicVideo = () => {
     })
     .then(result => {
       downloadStatus = result;
+      setDownloadingStatus(false);
       fetchSearchMusicVideo(); // Another to confirm the file exists
     })
     .catch(err => {

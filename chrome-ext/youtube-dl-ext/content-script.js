@@ -100,6 +100,7 @@ let fetchDownloadMusicVideo = () => {
 let injectMisterGrumpy = () => {
   grumpyBtn = document.createElement("button");
   grumpyBtn.id = "mister-grumpy-button"
+  grumpyBtn.classList.add("grumpy-button");
   grumpyBtn.textContent = "Mister Grumpy's button"
   grumpyBtn.onclick = fetchDownloadMusicVideo;
 

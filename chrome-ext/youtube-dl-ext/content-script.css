@@ -4,3 +4,15 @@
   position: relative;
   margin-left: 30px;
 }
+
+.okay-status {
+  color: green;
+}
+
+.not-okay-status {
+  color: red;
+}
+
+.unknown-status {
+  color: yellow;
+}

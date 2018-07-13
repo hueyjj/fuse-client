@@ -13,16 +13,29 @@
   border: none;
   background-color: #f1c40f;
   font-family: 'Open Sans', 'sans-serif'; 
+  cursor: pointer;
 }
 
 .okay-status {
-  background-color: green;
+  background-color: #2ecc71;
+}
+
+.okay-status:hover {
+  background-color: #48E68B;
 }
 
 .not-okay-status {
-  background-color: red;
+  background-color: #e74c3c;
+}
+
+.not-okay-status:hover {
+  background-color: #FF6656;
 }
 
 .unknown-status {
   background-color: #f1c40f;
+}
+
+.unknown-status:hover {
+  background-color: #FFDE29;
 }

@@ -6,7 +6,7 @@ const MUSIC_NOT_EXIST = "MUSIC_NOT_EXIST";
 const MUSIC_EXIST = "MUSIC_EXIST";
 const DOWNLOAD_FAIL = "DOWNLOAD_FAIL";
 const DOWNLOAD_SUCCESS = "DOWNLOAD_SUCCESS";
-const URL = location.href;
+let URL = location.href;
 
 var grumpyBtn = null;
 var searchStatus = null; 
@@ -119,3 +119,8 @@ let id = setInterval(() => {
     clearInterval(id);
   }
 }, 100);
+
+window.addEventListener("yt-navigate-finish", () => {
+  URL = location.href;
+  fetchSearchMusicVideo();
+})

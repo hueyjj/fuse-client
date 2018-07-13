@@ -37,10 +37,8 @@ let updateBtnStatus = () => {
 
 let setDownloadingStatus = (downloading) => {
   if (downloading) {
-    grumpyBtn.textContent = "downloading...";
-  } else {
-    grumpyBtn.textContent = "...";
-  }
+    grumpyBtn.textContent = "Downloading...";
+  } 
 }
 
 let fetchSearchMusicVideo = () => {

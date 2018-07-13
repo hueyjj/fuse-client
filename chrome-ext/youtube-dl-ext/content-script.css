@@ -1,18 +1,28 @@
-#mister-grumpy-button {
+button {
   display: block;
   outline: none;
   position: relative;
   margin-left: 30px;
+  border-radius: 2px;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 5px;
+  padding-bottom: 7px;
+  text-decoration: none;
+  color: #fff;
+  border: none;
+  background-color: #f1c40f;
+  font-family: 'Open Sans', 'sans-serif'; 
 }
 
 .okay-status {
-  color: green;
+  background-color: green;
 }
 
 .not-okay-status {
-  color: red;
+  background-color: red;
 }
 
 .unknown-status {
-  color: yellow;
+  background-color: #f1c40f;
 }

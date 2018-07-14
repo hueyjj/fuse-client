@@ -1,12 +1,36 @@
 // This script immediately runs when visiting a youtube url
 
+
+/////////////////////////////////////////////////////////////////////////////////////////
+// Third party
+/////////////////////////////////////////////////////////////////////////////////////////
+/**
+* Get YouTube ID from various YouTube URL
+* @author: takien
+* @url: http://takien.com
+* For PHP YouTube parser, go here http://takien.com/864
+*/
+function YouTubeGetID(url) {
+  var ID = '';
+  url = url.replace(/(>|<)/gi, '').split(/(vi\/|v=|\/v\/|youtu\.be\/|\/embed\/)/);
+  if (url[2] !== undefined) {
+    ID = url[2].split(/[^0-9a-z_\-]/i);
+    ID = ID[0];
+  }
+  else {
+    return null;
+  }
+  return ID;
+}
+/////////////////////////////////////////////////////////////////////////////////////////
+
 const SEARCH_ENDPOINT = "http://localhost:8080/youtube/music/search";
 const DOWNLOAD_ENDPOINT = "http://localhost:8080/youtube/music/download";
 const MUSIC_NOT_EXIST = "MUSIC_NOT_EXIST";
 const MUSIC_EXIST = "MUSIC_EXIST";
 const DOWNLOAD_FAIL = "DOWNLOAD_FAIL";
 const DOWNLOAD_SUCCESS = "DOWNLOAD_SUCCESS";
-let URL = location.href;
+let URL = null;
 
 var grumpyBtn = null;
 var searchStatus = null; 
@@ -34,6 +58,16 @@ let updateBtnStatus = () => {
     }
   }
 };
+
+let setUrl = () => {
+  let id = YouTubeGetID(location.href);
+  if (id) {
+    URL = "https://www.youtube.com/watch?v=" + id;
+  } else {
+    URL = null;
+  }
+}
+setUrl();
 
 let setDownloadingStatus = (downloading) => {
   if (downloading) {
@@ -122,8 +156,11 @@ let id = setInterval(() => {
 
 window.addEventListener("yt-navigate-finish", () => {
   // Reset
-  URL = location.href;
+  setUrl();
   searchStatus = null;
   updateBtnStatus();
   fetchSearchMusicVideo();
 })
+
+
+

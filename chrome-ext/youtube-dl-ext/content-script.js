@@ -121,6 +121,9 @@ let id = setInterval(() => {
 }, 100);
 
 window.addEventListener("yt-navigate-finish", () => {
+  // Reset
   URL = location.href;
+  searchStatus = null;
+  updateBtnStatus();
   fetchSearchMusicVideo();
 })

@@ -210,6 +210,7 @@ window.addEventListener("yt-navigate-finish", () => {
   searchStatus = null;
   updateBtnStatus();
   fetchSearchMusicVideo();
+  shoudReplay = false;
 })
 
 

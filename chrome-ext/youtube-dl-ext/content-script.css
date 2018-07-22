@@ -2,6 +2,7 @@
   display: block;
   outline: none;
   position: relative;
+  height: 36px;
   margin-left: 30px;
   border-radius: 2px;
   padding-left: 7px;
@@ -38,4 +39,41 @@
 
 .unknown-status:hover {
   background-color: #FFDE29;
+}
+
+.hueyjj-replay-button {
+  display: block;
+  outline: none;
+  width: 36px;
+  height: 36px;
+  position: relative;
+  padding: 0;
+  margin-left: 30px;
+  border-radius: 2px;
+  text-decoration: none;
+  color: #fff;
+  border: none;
+  background-color: #f1c40f;
+  font-family: 'Open Sans', 'sans-serif'; 
+  cursor: pointer;
+}
+
+.replay-enable {
+  background-color: #2ecc71;
+}
+
+.replay-enable:hover {
+  background-color: #48E68B;
+}
+
+.replay-disable {
+  background-color: #f1c40f;
+}
+
+.replay-disable:hover {
+  background-color: #FFDE29;
+}
+
+.replay-path-svg {
+  fill: white;
 }

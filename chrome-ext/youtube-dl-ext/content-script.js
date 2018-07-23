@@ -62,6 +62,16 @@ let updateBtnStatus = () => {
   }
 };
 
+let updateReplayBtn = () => {
+  if (shouldReplay) {
+    replayBtn.classList.add("replay-enable");
+    replayBtn.classList.remove("replay-disable");
+  } else {
+    replayBtn.classList.add("replay-disable");
+    replayBtn.classList.remove("replay-enable");
+  }
+}
+
 let setUrl = () => {
   let id = YouTubeGetID(location.href);
   if (id) {
@@ -139,15 +149,8 @@ let injectMisterGrumpy = () => {
   replayBtn.id = "23958h2-replay-button";
   replayBtn.classList.add("hueyjj-replay-button");
   replayBtn.onclick = () => {
-    if (shouldReplay) {
-      replayBtn.classList.remove("replay-enable");
-      replayBtn.classList.add("replay-disable");
-      shouldReplay = false;
-    } else {
-      replayBtn.classList.remove("replay-disable");
-      replayBtn.classList.add("replay-enable");
-      shouldReplay = true;
-    }
+      shouldReplay = !shouldReplay;
+      updateReplayBtn();
   }
 
   let replaySvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
@@ -210,7 +213,8 @@ window.addEventListener("yt-navigate-finish", () => {
   searchStatus = null;
   updateBtnStatus();
   fetchSearchMusicVideo();
-  shoudReplay = false;
+  shouldReplay = false;
+  updateReplayBtn();
 })
 
 
